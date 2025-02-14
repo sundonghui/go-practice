@@ -1,8 +1,14 @@
 package growslice
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
 func GrowSlice() {
+	procs := runtime.GOMAXPROCS(0) // 传入 0，不修改值，只返回当前值
+	fmt.Println("当前 GOMAXPROCS:", procs)
+
 	var s []int
 	lastCap := cap(s)
 
